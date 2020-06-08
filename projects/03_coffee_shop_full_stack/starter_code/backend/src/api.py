@@ -25,10 +25,6 @@ def create_app(test_config=None):
     Migrate(app, db)
 
     # ROUTES
-    @app.route('/')
-    @requires_auth('get:drinks-detail')  # no public endpoint
-    def index(payload):
-        return 'Permission granted'
 
     '''
     @TODO implement endpoint
@@ -208,9 +204,6 @@ def create_app(test_config=None):
             "additional_info": error.description['description']
         }, 401
     return app
-
-
-# ROUTES
 
 
 # Error Handling
