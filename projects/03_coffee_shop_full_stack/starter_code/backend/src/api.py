@@ -98,10 +98,13 @@ def create_app(test_config=None):
             Drink.title.ilike(data['title'].lower())).all()
         if len(duplicates_result) > 0:
             abort(
-                402,
+                409,
                 description={'code': 'duplicate_insertion',
                              'description': 'An entry was already present.'})
 
+        if not isinstance(data['recipe'], dict):
+            abort(400, description={'code': 'malformattgit ed',
+                                    'description': 'Recipe must be \{\}'})
         try:
             # wrap dict into list as supported type of recipe col
             data['recipe'] = json.dumps([data['recipe']])
