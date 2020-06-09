@@ -190,35 +190,89 @@ def create_app(test_config=None):
         finally:
             db.session.close()
 
+    # Error Handling
     '''
     @TODO implement error handler for AuthError
         error handler should conform to general task above
     '''
+    @ app.errorhandler(400)
+    def bad_request(error):
+        err_dict = {
+            "success": False,
+            "error": 400,
+            "message": "bad request",
+        }
+        if hasattr(error.description, 'code'):
+            err_dict.update(
+                {"error_type": error.description['code'],
+                 "additional_info": error.description['description']})
+        return err_dict, 400
+
     @ app.errorhandler(401)
     def unauthorized(error):
-        return {
+        err_dict = {
             "success": False,
             "error": 401,
             "message": "unauthorized",
-            "error_type": error.description['code'],
-            "additional_info": error.description['description']
-        }, 401
+        }
+        if hasattr(error.description, 'code'):
+            err_dict.update(
+                {"error_type": error.description['code'],
+                 "additional_info": error.description['description']})
+        return err_dict, 401
+
+    @ app.errorhandler(409)
+    def conflict(error):
+        err_dict = {
+            "success": False,
+            "error": 409,
+            "message": "double submit",
+        }
+        if hasattr(error.description, 'code'):
+            err_dict.update(
+                {"error_type": error.description['code'],
+                 "additional_info": error.description['description']})
+        return err_dict, 409
+
+    @app.errorhandler(422)
+    def unprocessable(error):
+        err_dict = {
+            "success": False,
+            "error": 422,
+            "message": "unprocessable",
+        }
+        if hasattr(error.description, 'code'):
+            err_dict.update(
+                {"error_type": error.description['code'],
+                 "additional_info": error.description['description']})
+        return err_dict, 422
+
+    @app.errorhandler(404)
+    def not_found(error):
+        err_dict = {
+            "success": False,
+            "error": 404,
+            "message": "Resource does not exist",
+        }
+        if hasattr(error.description, 'code'):
+            err_dict.update(
+                {"error_type": error.description['code'],
+                 "additional_info": error.description['description']})
+        return err_dict, 404
+
+    @app.errorhandler(405)
+    def not_allowed(error):
+        err_dict = {
+            "success": False,
+            "error": 405,
+            "message": "method not allowed",
+        }
+        if hasattr(error.description, 'code'):
+            err_dict.update(
+                {"error_type": error.description['code'],
+                 "additional_info": error.description['description']})
+        return err_dict, 405
     return app
-
-
-# Error Handling
-'''
-Example error handling for unprocessable entity
-'''
-
-
-# @app.errorhandler(422)
-# def unprocessable(error):
-#     return jsonify({
-#         "success": False,
-#         "error": 422,
-#         "message": "unprocessable"
-# }), 422
 
 
 '''
