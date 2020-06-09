@@ -632,7 +632,7 @@
 								"id": "daf35949-d6be-4068-aa52-7f3242047881",
 								"exec": [
 									"pm.test(\"Status code is 422\", function () {",
-									"    pm.response.to.have.status(200);",
+									"    pm.response.to.have.status(422);",
 									"});",
 									"",
 									"pm.test(\"success property of response body equals `false`\", function () {",
