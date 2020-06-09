@@ -45,6 +45,44 @@
 					"response": []
 				},
 				{
+					"name": "/drinks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e024a20-4463-4508-b5d4-05787478243a",
+								"exec": [
+									"pm.test(\"Method getting a single drink not allowed (405)\", function(){\r",
+									"    pm.response.to.have.status(405)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"success property of response body equals `false`\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success).to.eql(false);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/drinks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drinks",
+								"1"
+							]
+						},
+						"description": "GET a single drink is not allowed"
+					},
+					"response": []
+				},
+				{
 					"name": "/drinks-detail",
 					"event": [
 						{
@@ -586,6 +624,66 @@
 					"response": []
 				},
 				{
+					"name": "/drinks with malformatted recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "daf35949-d6be-4068-aa52-7f3242047881",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									"",
+									"pm.test(\"success property of response body equals `false`\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Water3\",\n    \"recipe\": [\"some invalid\", \"list\"]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/drinks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drinks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/drinks/1",
 					"event": [
 						{
@@ -689,6 +787,53 @@
 							"path": [
 								"drinks",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/drinks/9999999",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e375ed7e-d3fd-4ef2-8b53-b9e2c2a8e688",
+								"exec": [
+									"pm.test(\"404 for resource that does not exist\", function(){\r",
+									"    pm.response.to.have.status(404)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"success property of response body equals `false`\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success).to.eql(false);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/drinks/9999999",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drinks",
+								"9999999"
 							]
 						}
 					},

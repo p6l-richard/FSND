@@ -3,7 +3,7 @@ from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from jose.exceptions import ExpiredSignatureError
-from werkzeug.exceptions import NotFound
+from werkzeug.exceptions import NotFound, BadRequest, Conflict
 from urllib.request import urlopen
 import traceback
 
@@ -166,13 +166,27 @@ def requires_auth(permission=''):
                 return f(payload, *args, **kwargs)
             except NotFound as e:
                 print(traceback.print_exc())
-                abort(404)
+                if e.description is not None:
+                    abort(404, description=e.description)
+                else:
+                    abort(404)
+            except BadRequest as e:
+                print(traceback.print_exc())
+                if e.description is not None:
+                    abort(400, description=e.description)
+                else:
+                    abort(400)
+            except Conflict as e:
+                print(traceback.print_exc())
+                if e.description is not None:
+                    abort(409, description=e.description)
+                else:
+                    abort(409)
             except Exception as e:
                 print(traceback.print_exc())
                 if hasattr(e, 'status_code'):
                     abort(e.status_code, description=e.error)
                 else:
-                    print('!!!!!CHECK ME!!!!', type(e), vars(e), e, e.code)
                     raise AuthError(e, status_code=401)
 
         return wrapper
