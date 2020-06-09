@@ -82,10 +82,10 @@ def create_app(test_config=None):
             data = json.loads(data)
 
         # Verify format & validity of request body to return helpful error codes to users
-        if len(data.keys()) > 2:
+        if len(data.keys()) > 3:
             abort(400, description={'code': 'malformatted',
                                     'description': 'Too many keys in JSON body.'})
-        if len(data.keys()) < 2:
+        if len(data.keys()) < 3:
             abort(400, description={'code': 'malformatted',
                                     'description': 'Too few keys in JSON body.'})
         if not all(req_attribute in data
@@ -102,9 +102,6 @@ def create_app(test_config=None):
                 description={'code': 'duplicate_insertion',
                              'description': 'An entry was already present.'})
 
-        if not isinstance(data['recipe'], dict):
-            abort(400, description={'code': 'malformattgit ed',
-                                    'description': 'Recipe must be \{\}'})
         try:
             # wrap dict into list as supported type of recipe col
             data['recipe'] = json.dumps([data['recipe']])
