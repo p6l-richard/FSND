@@ -195,6 +195,12 @@ def create_app(test_config=None):
     @TODO implement error handler for AuthError
         error handler should conform to general task above
     '''
+    @app.errorhandler(AuthError)
+    def handle_auth_error(error):
+        response = jsonify(error.error)
+        response.status_code = error.status_code
+        return response
+
     @ app.errorhandler(400)
     def bad_request(error):
         err_dict = {
