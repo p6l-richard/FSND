@@ -437,7 +437,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik4wTkNOVEEzTWpaQ1FUa3lRMEl6TmtORk0wWXhRVFUwT1RFMFFVVkNSRUpDT1RBME1EUXpOUSJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktZnNuZC5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDY3MTQ4MTQ0MTcwNjk3MTI4OTMiLCJhdWQiOlsiZGV2IiwiaHR0cHM6Ly91ZGFjaXR5LWZzbmQuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU2MDg5MDE2MCwiZXhwIjoxNTYwODk3MzYwLCJhenAiOiJPSjVwQk9ZSURFa09FVFVmUWo1ajdsSDZFTFcwMkd1MCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6ZHJpbmtzIiwiZ2V0OmRyaW5rcy1kZXRhaWwiXX0.j9ocW47_exQOkEa10ffh8eijGvrIMxnGRzCmbrXnfaN_8ULsgA7AnWYMtvP8RmPWvT9n8sReWnFuJajUHBUbnBO2GuJ4aM3-WDUBeJT0X_mpGUWs4lxaNTbIkWdiWPTsEiRnP3wT-dU_v3Olw2PB4UMajMIjSH-IdF2Y1CiJIOaM0gV44RGZRyRvj6C2_mOkMfoXxzw-HrVvTRCo1NcUPea5Bs04POni7azx-B7FstP_HLm0dEbbge4XbmovHwlIXknIoI8PbuGXeLBqE2hv8fErKFBuIykxzK0nErH5zSPCrkM-_9smb8TLGAH-E5j1KQb6SHDKtcV_QHnsUYFuXA",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9ieXJyRlBMZmgzZWpkRWN2aVBqbSJ9.eyJpc3MiOiJodHRwczovL3A2bC1yaWNoYXJkLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWQ1ZmQyNTM0MzJjODBiOTgwOWQ5MWUiLCJhdWQiOiJodHRwczovLzEyNy4wLjAuMS9hcGkiLCJpYXQiOjE1OTQ2MjQzNjIsImV4cCI6MTU5NDcxMDc2MSwiYXpwIjoiWW5pOWJtUjVqZ04yQ0hicDFFbXJvelNtS2ppRWVyT2kiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpkcmlua3MtZGV0YWlsIl19.GjThD3vehHvM3sa18UvJoUt0KCU7mZDQMmrP3CPYGtLXqnAsb0unYyNbqvPYQbewuANwbm7NlCmpCYPA3eO9SM2aOyfzDNImOdHUoLWAcvDcqX7eyg_PxQGdA9GpUH8yezZLJ7JXL9mJhTrGkjKUcTJhfqOikQA7dfSuM9bx8go8q2AA85fLO-q-VsgNXen0Lxgc8AeBygSlPm8izhnPLVg8CNNAr7UhqWzE4OhsTgsLguthvWD1E9FhdtdhB1x6VkpETefNgFcpj7DqgZhh22DbZf5XnEY_EtqcFdF6TQ9Bh--x_0pSIdF4_Tn-p1N5cvAkYUrau3VALHW6e6wt_A",
 						"type": "string"
 					}
 				]
@@ -609,7 +609,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Water3\",\n    \"id\": 12,\n    \"recipe\": {\n        \"name\": \"Water\",\n        \"color\": \"blue\",\n        \"parts\": 1\n    }\n}"
+							"raw": "{\n    \"title\": \"Water3\",\n    \"id\": 12,\n    \"recipe\": {\n        \"name\": \"Water\",\n        \"color\": \"blue\",\n        \"parts\": 1\n    }\n}",
+							"options": {
+								"raw": {}
+							}
 						},
 						"url": {
 							"raw": "{{host}}/drinks",
@@ -790,7 +793,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Water5\"\n}"
+							"raw": "{\n    \"title\": \"Water5\"\n}",
+							"options": {
+								"raw": {}
+							}
 						},
 						"url": {
 							"raw": "{{host}}/drinks/1",
@@ -905,7 +911,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik4wTkNOVEEzTWpaQ1FUa3lRMEl6TmtORk0wWXhRVFUwT1RFMFFVVkNSRUpDT1RBME1EUXpOUSJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktZnNuZC5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDY3MTQ4MTQ0MTcwNjk3MTI4OTMiLCJhdWQiOlsiZGV2IiwiaHR0cHM6Ly91ZGFjaXR5LWZzbmQuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU2MDg4OTU5NiwiZXhwIjoxNTYwODk2Nzk2LCJhenAiOiJPSjVwQk9ZSURFa09FVFVmUWo1ajdsSDZFTFcwMkd1MCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6ZHJpbmtzIiwiZ2V0OmRyaW5rcyIsImdldDpkcmlua3MtZGV0YWlsIiwicGF0Y2g6ZHJpbmtzIiwicG9zdDpkcmlua3MiXX0.Qk-5FC2X_RUkK00WKARYCKw_877XFuaT5ND3f3ObD9Ly1e1GMfJXhi3McV12binGGCw6x241erIjGB0t8WbWdU3bYpIVD1klZ64DVLQ8Q2LQ2NzB3eFEOgGLL85az1jIDbRiuATIRbbBOWILPJ6h6KR9L5hExklf2zuj3Bnwm7zMRmVpIJmjrUt4bWjtTOguOwJ0IVQsk4PDjGxzwfrUWFCFNDqN_u15JNLxeH21C-QvCpHs3D4Aodeh1qFUuWHfK_Gyfu91AitXPTVZRX9eZbUOVkGT3JMn4sKn9oGaKFTx2E-Y4DmoECG0uWImbX_wiRjx4aTeo7Q7hKSReMToPA",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9ieXJyRlBMZmgzZWpkRWN2aVBqbSJ9.eyJpc3MiOiJodHRwczovL3A2bC1yaWNoYXJkLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWQ1ZmNlNzM0MzJjODBiOTgwOWQ4YWUiLCJhdWQiOiJodHRwczovLzEyNy4wLjAuMS9hcGkiLCJpYXQiOjE1OTQ2MjQ0MzksImV4cCI6MTU5NDcxMDgzOCwiYXpwIjoiWW5pOWJtUjVqZ04yQ0hicDFFbXJvelNtS2ppRWVyT2kiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.gHVXxXk3UvzbvfkPJ_lhz-gcuTLAc4cut-HoxDK2oqOJR5Dkmv5bO0yerK-F2mIWlhx56ju5TbWgZdJlLlZI5u6T0mKOJZv5-8nv9ubNxE0NxeobH9bz_zpNjb71Z6JDlBAu8FG4al5v_X7T2VvZsoePLMsbNTOhh2nG2p0ckH7joF9lx6fX9NWqnXjWMY602xW7AtekugbrVwI7z7oacjUYrMXh4TGJT1UaufxUM5b5WR9IADzgHPWTabzsO5qBghLXwBVmvmTmA91s-shtfQsRfO3qklt7EKi15NaKRDvHz72LGpzLMq2WRvBRgcFRWC9RwnW82HXn5C-jk4HCvQ",
 						"type": "string"
 					}
 				]
